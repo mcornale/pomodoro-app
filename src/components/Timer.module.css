@@ -1,0 +1,15 @@
+.timer {
+  border-radius: 100%;
+  width: 38rem;
+  height: 38rem;
+  background-color: var(--color-dark-blue-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+
+.timerValue {
+  margin-bottom: 1.4rem;
+}
