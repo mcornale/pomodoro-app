@@ -1,5 +1,11 @@
+import Logo from './components/Logo';
+
 const App = () => {
-  return <div>Pomodoro App</div>;
+  return (
+    <div>
+      <Logo />
+    </div>
+  );
 };
 
 export default App;
