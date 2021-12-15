@@ -1,4 +1,5 @@
 import Logo from './components/Logo';
+import Timer from './components/Timer';
 import TimerSwitch from './components/TimerSwitch';
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <main>
       <Logo />
       <TimerSwitch />
+      <Timer />
     </main>
   );
 };
