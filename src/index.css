@@ -1,13 +1,47 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --color-orange-red: #f87070;
+  --color-teal: #70f3f8;
+  --color-purple: #d881f8;
+  --color-light-blue: #d7e0ff;
+  --color-dark-blue: #1e213f;
+  --color-dark-blue-2: #161932;
+  --color-white: #fff;
+  --color-light-grey: #eff1fa;
+  --font-family-kumbh-sans: 'Kumbh Sans', sans-serif;
+  --font-family-roboto-slab: 'Roboto Slab', sans-serif;
+  --font-family-space-mono: 'Space Mono', sans-serif;
+  --font-size-h1: 10rem;
+  --font-size-h2: 2.8rem;
+  --font-size-h3: 1.6rem;
+  --font-size-h4: 1.3rem;
+  --font-size-body-1: 1.4rem;
+  --font-size-body-2: 1.2rem;
+  --line-height-h1: 12rem;
+  --line-height-h2: 3.4rem;
+  --line-height-h3: 1.9rem;
+  --line-height-h4: 1.6rem;
+  --line-height-body-1: 1.8rem;
+  --line-height-body-2: 1.4rem;
+  --letter-spacing-h3: 1.5rem;
+  --letter-spacing-h4: 0.5rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-family-kumbh-sans);
+  min-height: 100vh;
+  background-color: var(--color-dark-blue);
 }
