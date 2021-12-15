@@ -1,14 +1,13 @@
-import React from 'react';
+import styles from './Button.module.css';
 
 type Props = {
-  active?: boolean;
   children: string;
 };
 
 const Button = (props: Props) => {
   const { children } = props;
 
-  return <button>{children}</button>;
+  return <button className={styles.button}>{children}</button>;
 };
 
 export default Button;

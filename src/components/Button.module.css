@@ -1,0 +1,17 @@
+.button {
+  color: var(--color-light-blue);
+  font-family: inherit;
+  font-size: var(--font-size-body-1);
+  opacity: 0.4;
+  background-color: transparent;
+  padding: 1.4rem 2.7rem;
+  font-weight: 500;
+}
+
+.button:first-child {
+  background-color: var(--color-orange-red);
+  border-radius: 3rem;
+  opacity: 1;
+  color: var(--color-dark-blue-2);
+  font-weight: 700;
+}

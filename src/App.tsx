@@ -1,10 +1,12 @@
 import Logo from './components/Logo';
+import TimerSwitch from './components/TimerSwitch';
 
 const App = () => {
   return (
-    <div>
+    <main>
       <Logo />
-    </div>
+      <TimerSwitch />
+    </main>
   );
 };
 
