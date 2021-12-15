@@ -10,7 +10,7 @@
   stroke-width: 10;
   stroke-linecap: round;
   stroke-dasharray: var(--dash-array);
-  stroke-dashoffset: calc(var(--dash-array) - (var(--dash-array) * 100) / 100);
+  stroke-dashoffset: calc(var(--dash-array) - (var(--dash-array) * 80) / 100);
   transform-origin: center center;
   transform: rotate(-90deg);
 }
