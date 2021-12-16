@@ -14,7 +14,7 @@ const App = () => {
       <Button>
         <img src={settingsIconSrc} alt='settings icon' />
       </Button>
-      <Modal />
+      {/* <Modal /> */}
     </main>
   );
 };
