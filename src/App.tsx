@@ -1,9 +1,9 @@
-import Button from './components/Button';
+import Button from './components/UI/Button';
 import Logo from './components/Logo';
-import Timer from './components/Timer';
-import TimerSwitch from './components/TimerSwitch';
+import Timer from './components/Timer/Timer';
+import TimerSwitch from './components/Timer/TimerSwitch';
 import settingsIconSrc from './assets/icon-settings.svg';
-import Modal from './components/Modal';
+import Modal from './components/Modal/Modal';
 
 const App = () => {
   return (

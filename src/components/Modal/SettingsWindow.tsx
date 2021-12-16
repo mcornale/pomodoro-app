@@ -1,5 +1,5 @@
-import closeIconSrc from '../assets/icon-close.svg';
-import Button from './Button';
+import closeIconSrc from '../../assets/icon-close.svg';
+import Button from '../UI/Button';
 
 import styles from './SettingsWindow.module.css';
 
