@@ -15,14 +15,14 @@ const Timer = () => {
     changeTimerStatus,
   } = useContext(TimerContext);
 
+  const [timerMinutes, setTimerMinutes] = useState(0);
+  const [timerSeconds, setTimerSeconds] = useState(0);
+
   const chooseMinutes = useCallback(() => {
     if (activeTimer === TIMERS.POMODORO) return pomodoroMinutes;
     if (activeTimer === TIMERS.SHORT_BREAK) return shortBreakMinutes;
     if (activeTimer === TIMERS.LONG_BREAK) return longBreakMinutes;
   }, [activeTimer, pomodoroMinutes, shortBreakMinutes, longBreakMinutes]);
-
-  const [timerMinutes, setTimerMinutes] = useState(chooseMinutes());
-  const [timerSeconds, setTimerSeconds] = useState(0);
 
   useEffect(() => {
     setTimerMinutes(chooseMinutes());
@@ -51,10 +51,13 @@ const Timer = () => {
     }
   }, [timerMinutes, timerSeconds, changeTimerStatus, timerStatus]);
 
+  const percentage =
+    ((timerMinutes * 60 + timerSeconds) / (pomodoroMinutes * 60)) * 100;
+
   return (
     <div className={styles.timerContainer}>
       <div className={styles.timer}>
-        <ProgressBar />
+        <ProgressBar percentage={percentage} />
         <h1 className={styles.timerValue}>
           {timerMinutes.toString().padStart(2, '0')}:
           {timerSeconds.toString().padStart(2, '0')}
