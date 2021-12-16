@@ -6,7 +6,7 @@
 }
 
 .button:first-child {
-  background-color: var(--color-orange-red);
+  background-color: var(--color-selected);
   opacity: 1;
   color: var(--color-dark-blue-2);
   font-weight: 700;
@@ -14,7 +14,7 @@
 
 .buttonPrimary {
   width: 14rem;
-  background-color: var(--color-orange-red);
+  background-color: var(--color-selected);
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-white);

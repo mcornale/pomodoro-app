@@ -4,8 +4,21 @@ import Timer from './components/Timer/Timer';
 import TimerSwitch from './components/Timer/TimerSwitch';
 import settingsIconSrc from './assets/icon-settings.svg';
 import Modal from './components/Modal/Modal';
+import { useContext } from 'react';
+import { TimerContext } from './store/TimerContext';
 
 const App = () => {
+  const context = useContext(TimerContext);
+
+  document.documentElement.style.setProperty(
+    '--color-selected',
+    context.colorSelected
+  );
+  document.documentElement.style.setProperty(
+    '--font-selected',
+    context.fontSelected
+  );
+
   return (
     <main>
       <Logo />

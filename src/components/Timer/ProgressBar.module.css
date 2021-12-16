@@ -6,7 +6,7 @@
 
 .progressBar circle {
   --dash-array: 1186;
-  stroke: var(--color-orange-red);
+  stroke: var(--color-selected);
   stroke-width: 10;
   stroke-linecap: round;
   stroke-dasharray: var(--dash-array);

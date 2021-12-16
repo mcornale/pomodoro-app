@@ -45,7 +45,7 @@
 }
 
 .inputRadioContainer:nth-child(1) .inputRadioColor {
-  background-color: var(--color-orange-red);
+  background-color: var(--color-selected);
 }
 
 .inputRadioContainer:nth-child(2) .inputRadioColor {
