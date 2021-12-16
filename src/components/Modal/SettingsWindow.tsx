@@ -1,6 +1,7 @@
 import CloseIcon from '../Icons/CloseIcon';
 import Button from '../UI/Button';
 import InputNumber from '../UI/InputNumber';
+import InputRadio from '../UI/InputRadio';
 
 import styles from './SettingsWindow.module.css';
 
@@ -23,17 +24,17 @@ const SettingsWindow = () => {
         <div>
           <h4>Font</h4>
           <div className={styles.settingsWindowInputsContainer}>
-            <input type='radio' />
-            <input type='radio' />
-            <input type='radio' />
+            <InputRadio fontRadio />
+            <InputRadio fontRadio />
+            <InputRadio fontRadio />
           </div>
         </div>
         <div>
           <h4>Color</h4>
           <div className={styles.settingsWindowInputsContainer}>
-            <input type='radio' />
-            <input type='radio' />
-            <input type='radio' />
+            <InputRadio colorRadio />
+            <InputRadio colorRadio />
+            <InputRadio colorRadio />
           </div>
         </div>
         <Button type='submit' primary>

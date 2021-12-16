@@ -9,9 +9,9 @@
   --color-dark-blue-2: #161932;
   --color-white: #fff;
   --color-light-grey: #eff1fa;
-  --font-family-kumbh-sans: 'Kumbh Sans', sans-serif;
-  --font-family-roboto-slab: 'Roboto Slab', sans-serif;
-  --font-family-space-mono: 'Space Mono', sans-serif;
+  --font-family-1: 'Kumbh Sans', sans-serif;
+  --font-family-2: 'Roboto Slab', sans-serif;
+  --font-family-3: 'Space Mono', sans-serif;
   --font-size-h1: 10rem;
   --font-size-h2: 2.8rem;
   --font-size-h3: 1.6rem;
@@ -41,7 +41,7 @@ html {
 }
 
 body {
-  font-family: var(--font-family-kumbh-sans);
+  font-family: var(--font-family-1);
 }
 
 main {

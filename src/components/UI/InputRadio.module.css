@@ -1,0 +1,57 @@
+.inputRadioContainer {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  position: relative;
+}
+
+.inputRadio {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.inputRadioCustom {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-light-grey);
+}
+
+.inputRadioFont::after {
+  content: 'Aa';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.inputRadioContainer:nth-child(1) .inputRadioFont::after {
+  font-family: var(--font-family-1);
+}
+
+.inputRadioContainer:nth-child(2) .inputRadioFont::after {
+  font-family: var(--font-family-2);
+  font-weight: 500;
+}
+
+.inputRadioContainer:nth-child(3) .inputRadioFont::after {
+  font-family: var(--font-family-3);
+}
+
+.inputRadioContainer:nth-child(1) .inputRadioColor {
+  background-color: var(--color-orange-red);
+}
+
+.inputRadioContainer:nth-child(2) .inputRadioColor {
+  background-color: var(--color-teal);
+}
+
+.inputRadioContainer:nth-child(3) .inputRadioColor {
+  background-color: var(--color-purple);
+}

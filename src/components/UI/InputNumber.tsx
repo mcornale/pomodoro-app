@@ -8,7 +8,7 @@ const InputNumber = () => {
     <div>
       <label className={styles.inputNumberLabel}>pomodoro</label>
       <div className={styles.inputNumberContainer}>
-        <input className={styles.inputNumber} type='number' min='0' value={0} />
+        <input className={styles.inputNumber} type='number' min='0' />
         <div className={styles.inputNumberArrows}>
           <ArrowUpIcon />
           <ArrowDownIcon />
