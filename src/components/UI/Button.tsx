@@ -18,7 +18,7 @@ const Button = (props: Props) => {
         secondary ? styles.buttonSecondary : ''
       } ${active ? styles.buttonActive : ''}`}
       type={type}
-      {...(onClick ? { onClick: onClick.bind(null, children) } : '')}
+      {...(onClick ? { onClick: onClick } : '')}
     >
       {children}
     </button>

@@ -4,6 +4,18 @@ const TIMERS = {
   LONG_BREAK: 'long break',
 };
 
+const TIMER_STATUS = {
+  COUNTING: 'counting',
+  PAUSED: 'paused',
+  FINISHED: 'finished',
+};
+
+const TIMER_ACTIONS = {
+  paused: 'start',
+  counting: 'pause',
+  finished: 'restart',
+};
+
 const COLORS = {
   ORANGE_RED: '#f87070',
   TEAL: '#f87070',
@@ -16,4 +28,4 @@ const FONTS = {
   SPACE_MONO: 'Space Mono',
 };
 
-export { TIMERS, COLORS, FONTS };
+export { TIMERS, TIMER_STATUS, TIMER_ACTIONS, COLORS, FONTS };

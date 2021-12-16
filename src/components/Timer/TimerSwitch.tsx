@@ -28,7 +28,7 @@ const TimerSwitch = () => {
           key={timerKey}
           active={timerName === activeTimer ? true : false}
           secondary
-          onClick={changeActiveTimer}
+          onClick={changeActiveTimer.bind(null, timerName)}
         >
           {timerName}
         </Button>

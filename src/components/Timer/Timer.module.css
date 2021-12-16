@@ -21,6 +21,10 @@
   border-radius: 50%;
 }
 
+.timer > *:not(:first-child) {
+  position: relative;
+}
+
 .timerValue {
   margin-bottom: 1.4rem;
 }
