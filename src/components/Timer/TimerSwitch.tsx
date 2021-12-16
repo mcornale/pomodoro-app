@@ -8,8 +8,10 @@ import styles from './TimerSwitch.module.css';
 const TimerSwitch = () => {
   const { activeTimer, changeActiveTimer } = useContext(TimerContext);
 
-  const activeTimerIndex = Object.values(TIMERS).findIndex(
-    (value) => value === activeTimer
+  const timersEntriesArr = Object.entries(TIMERS);
+
+  const activeTimerIndex = timersEntriesArr.findIndex(
+    ([_, timerName]) => timerName === activeTimer
   );
 
   return (
@@ -17,11 +19,11 @@ const TimerSwitch = () => {
       <div
         className={styles.timerSwitchActiveBackground}
         style={{
-          width: `calc(100% / ${Object.keys(TIMERS).length})`,
+          width: `calc(100% / ${timersEntriesArr.length})`,
           transform: `translate(calc(100% * ${activeTimerIndex}), -50%)`,
         }}
       ></div>
-      {Object.entries(TIMERS).map(([timerKey, timerName]) => (
+      {timersEntriesArr.map(([timerKey, timerName]) => (
         <Button
           key={timerKey}
           active={timerName === activeTimer ? true : false}
