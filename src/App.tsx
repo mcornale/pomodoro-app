@@ -8,14 +8,14 @@ import { useContext } from 'react';
 import { TimerContext } from './store/TimerContext';
 
 const App = () => {
-  const { fontSelected, colorSelected } = useContext(TimerContext);
+  const { selectedFont, selectedColor } = useContext(TimerContext);
 
   document.documentElement.style.setProperty(
     '--font-selected',
-    `'${fontSelected}', sans-serif`
+    `'${selectedFont}', sans-serif`
   );
 
-  document.documentElement.style.setProperty('--color-selected', colorSelected);
+  document.documentElement.style.setProperty('--color-selected', selectedColor);
 
   return (
     <main>

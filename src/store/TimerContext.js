@@ -1,16 +1,23 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { COLORS, FONTS, TIMERS } from '../constants';
 
 const TimerContext = createContext();
 
 const TimerContextProvider = (props) => {
+  const [activeTimer, setActiveTimer] = useState(TIMERS.POMODORO);
+
+  const changeActiveTimer = (newActiveTimer) => {
+    setActiveTimer(newActiveTimer);
+  };
+
   const timerContextValue = {
-    timerActive: TIMERS.POMODORO,
+    activeTimer,
     pomodoroValue: 25,
     shortBreakValue: 5,
     longBreakValue: 15,
-    fontSelected: FONTS.KUMBH_SANS,
-    colorSelected: COLORS.ORANGE_RED,
+    selectedFont: FONTS.KUMBH_SANS,
+    selectedColor: COLORS.ORANGE_RED,
+    changeActiveTimer,
   };
 
   return (
