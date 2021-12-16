@@ -3,6 +3,7 @@ import Logo from './components/Logo';
 import Timer from './components/Timer';
 import TimerSwitch from './components/TimerSwitch';
 import settingsIconSrc from './assets/icon-settings.svg';
+import Modal from './components/Modal';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Button noOpacity>
         <img src={settingsIconSrc} alt='settings icon' />
       </Button>
+      <Modal />
     </main>
   );
 };
