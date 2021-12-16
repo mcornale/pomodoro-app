@@ -1,0 +1,27 @@
+.inputNumberLabel {
+  font-size: 1.2rem;
+  opacity: 0.4;
+  font-weight: 700;
+}
+
+.inputNumberContainer {
+  background-color: var(--color-light-grey);
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.inputNumber {
+  background-color: transparent;
+  font-size: var(--font-size-body-1);
+  font-weight: 700;
+  width: 10rem;
+}
+
+.inputNumberArrows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}

@@ -1,5 +1,6 @@
-import closeIconSrc from '../../assets/icon-close.svg';
+import CloseIcon from '../Icons/CloseIcon';
 import Button from '../UI/Button';
+import InputNumber from '../UI/InputNumber';
 
 import styles from './SettingsWindow.module.css';
 
@@ -8,29 +9,20 @@ const SettingsWindow = () => {
     <section className={styles.settingsWindow}>
       <header className={styles.settingsWindowHeader}>
         <h2>Settings</h2>
-        <img src={closeIconSrc} alt='close icon' />
+        <CloseIcon />
       </header>
       <form className={styles.settingsWindowForm}>
         <div>
-          <h4>Time (minutes)</h4>
-          <div>
-            <div>
-              <label>pomodoro</label>
-              <input type='number' />
-            </div>
-            <div>
-              <label>short break</label>
-              <input type='number' />
-            </div>
-            <div>
-              <label>long break</label>
-              <input type='number' />
-            </div>
+          <h4 className={styles.settingsWindowInputsTitle}>Time (minutes)</h4>
+          <div className={styles.settingsWindowInputsContainer}>
+            <InputNumber />
+            <InputNumber />
+            <InputNumber />
           </div>
         </div>
         <div>
           <h4>Font</h4>
-          <div>
+          <div className={styles.settingsWindowInputsContainer}>
             <input type='radio' />
             <input type='radio' />
             <input type='radio' />
@@ -38,7 +30,7 @@ const SettingsWindow = () => {
         </div>
         <div>
           <h4>Color</h4>
-          <div>
+          <div className={styles.settingsWindowInputsContainer}>
             <input type='radio' />
             <input type='radio' />
             <input type='radio' />

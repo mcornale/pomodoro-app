@@ -37,6 +37,15 @@
   border-top: 0.1rem solid #e3e1e1;
 }
 
+.settingsWindowInputsTitle {
+  margin-bottom: 2rem;
+}
+
+.settingsWindowInputsContainer {
+  display: flex;
+  gap: 2rem;
+}
+
 .settingsWindow button {
   position: absolute;
   bottom: 0;

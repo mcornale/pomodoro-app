@@ -54,10 +54,27 @@ main {
   font-weight: 700;
 }
 
-button {
+button,
+input {
   border: none;
-  cursor: pointer;
   outline: none;
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 h1,
