@@ -1,17 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 :root {
-  --color-orange-red: #f87070;
-  --color-teal: #70f3f8;
-  --color-purple: #d881f8;
   --color-light-blue: #d7e0ff;
   --color-dark-blue: #1e213f;
   --color-dark-blue-2: #161932;
   --color-white: #fff;
   --color-light-grey: #eff1fa;
-  --font-family-1: 'Kumbh Sans', sans-serif;
-  --font-family-2: 'Roboto Slab', sans-serif;
-  --font-family-3: 'Space Mono', sans-serif;
   --font-size-h1: 10rem;
   --font-size-h2: 2.8rem;
   --font-size-h3: 1.6rem;
