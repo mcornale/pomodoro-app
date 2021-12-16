@@ -1,0 +1,45 @@
+.settingsWindow {
+  background-color: var(--color-white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2.5rem;
+}
+
+.settingsWindowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  border-bottom: 0.1rem solid #e3e1e1;
+}
+
+.settingsWindowForm {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 3rem 5rem;
+}
+
+.settingsWindowForm > div {
+  display: flex;
+  padding: 2rem 0;
+}
+
+.settingsWindowForm > div:first-child {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.settingsWindowForm > div:not(:first-child) {
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.1rem solid #e3e1e1;
+}
+
+.settingsWindow button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
