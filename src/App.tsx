@@ -11,7 +11,7 @@ const App = () => {
       <Logo />
       <TimerSwitch />
       <Timer />
-      <Button noOpacity>
+      <Button>
         <img src={settingsIconSrc} alt='settings icon' />
       </Button>
       <Modal />
