@@ -63,7 +63,7 @@ const Timer = () => {
   return (
     <div className={styles.timerContainer}>
       <div className={styles.timer}>
-        <ProgressBar percentage={percentage} />
+        <ProgressBar percentage={percentage === 0 ? 100 : percentage} />
         <h1 className={styles.timerValue}>
           {timerMinutes.toString().padStart(2, '0')}:
           {timerSeconds.toString().padStart(2, '0')}
