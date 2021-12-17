@@ -24,6 +24,12 @@ const Timer = () => {
     if (activeTimer === TIMERS.LONG_BREAK) return longBreakMinutes;
   }, [activeTimer, pomodoroMinutes, shortBreakMinutes, longBreakMinutes]);
 
+  const chooseTimerAction = useCallback(() => {
+    if (timerStatus === TIMER_STATUS.PAUSED) return TIMER_ACTIONS.START;
+    if (timerStatus === TIMER_STATUS.COUNTING) return TIMER_ACTIONS.PAUSE;
+    if (timerStatus === TIMER_STATUS.FINISHED) return TIMER_ACTIONS.RESTART;
+  }, [timerStatus]);
+
   useEffect(() => {
     setTimerMinutes(chooseMinutes());
     setTimerSeconds(0);
@@ -52,7 +58,7 @@ const Timer = () => {
   }, [timerMinutes, timerSeconds, changeTimerStatus, timerStatus]);
 
   const percentage =
-    ((timerMinutes * 60 + timerSeconds) / (pomodoroMinutes * 60)) * 100;
+    ((timerMinutes * 60 + timerSeconds) / (chooseMinutes() * 60)) * 100;
 
   return (
     <div className={styles.timerContainer}>
@@ -63,7 +69,7 @@ const Timer = () => {
           {timerSeconds.toString().padStart(2, '0')}
         </h1>
         <Button onClick={changeTimerStatus.bind(null, null)}>
-          <h3>{TIMER_ACTIONS[timerStatus]}</h3>
+          <h3>{chooseTimerAction()}</h3>
         </Button>
       </div>
     </div>

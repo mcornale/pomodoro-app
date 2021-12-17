@@ -11,9 +11,9 @@ const TIMER_STATUS = {
 };
 
 const TIMER_ACTIONS = {
-  paused: 'start',
-  counting: 'pause',
-  finished: 'restart',
+  START: 'start',
+  PAUSE: 'pause',
+  RESTART: 'restart',
 };
 
 const COLORS = {
