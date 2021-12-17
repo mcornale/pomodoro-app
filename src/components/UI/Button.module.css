@@ -29,3 +29,11 @@
   color: var(--color-dark-blue-2);
   font-weight: 700;
 }
+
+.buttonNotification {
+  width: auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-color: var(--color-dark-blue-2);
+  margin-top: 3rem;
+}

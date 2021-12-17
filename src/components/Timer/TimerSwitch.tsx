@@ -1,6 +1,9 @@
 import { TIMERS } from '../../constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { changeActiveTimer } from '../../store/timerSlice';
+import {
+  changeActiveTimer,
+  updateActiveTimerTotalMinutes,
+} from '../../store/timerSlice';
 import Button from '../UI/Button';
 
 import styles from './TimerSwitch.module.css';
@@ -17,6 +20,7 @@ const TimerSwitch = () => {
 
   const onChangeActiveTimerHandler = (timerName: string) => {
     dispatch(changeActiveTimer(timerName));
+    dispatch(updateActiveTimerTotalMinutes());
   };
 
   return (

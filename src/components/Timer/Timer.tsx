@@ -1,41 +1,26 @@
-import { useEffect, useState, useCallback } from 'react';
-import { TIMERS, TIMER_ACTIONS, TIMER_STATUS } from '../../constants';
+import { useEffect, useCallback } from 'react';
+import { TIMER_ACTIONS, TIMER_STATUS } from '../../constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { changeTimerStatus } from '../../store/timerSlice';
+import {
+  changeTimerStatus,
+  changeTimerValues,
+  updateActiveTimerTotalMinutes,
+} from '../../store/timerSlice';
 import Button from '../UI/Button';
 import ProgressBar from './ProgressBar';
 import styles from './Timer.module.css';
 
 const Timer = () => {
-  const {
-    pomodoroMinutes,
-    shortBreakMinutes,
-    longBreakMinutes,
-    activeTimer,
-    timerStatus,
-  } = useAppSelector((state) => state.timer);
+  const { timerMinutes, timerSeconds, timerStatus, totalMinutesActiveTimer } =
+    useAppSelector((state) => state.timer);
 
   const dispatch = useAppDispatch();
-
-  const [timerMinutes, setTimerMinutes] = useState(0);
-  const [timerSeconds, setTimerSeconds] = useState(0);
-
-  const chooseMinutes = useCallback(() => {
-    if (activeTimer === TIMERS.POMODORO) return pomodoroMinutes;
-    if (activeTimer === TIMERS.SHORT_BREAK) return shortBreakMinutes;
-    if (activeTimer === TIMERS.LONG_BREAK) return longBreakMinutes;
-  }, [activeTimer, pomodoroMinutes, shortBreakMinutes, longBreakMinutes]);
 
   const chooseTimerAction = useCallback(() => {
     if (timerStatus === TIMER_STATUS.PAUSED) return TIMER_ACTIONS.START;
     if (timerStatus === TIMER_STATUS.COUNTING) return TIMER_ACTIONS.PAUSE;
     if (timerStatus === TIMER_STATUS.FINISHED) return TIMER_ACTIONS.RESTART;
   }, [timerStatus]);
-
-  useEffect(() => {
-    setTimerMinutes(25);
-    setTimerSeconds(0);
-  }, [activeTimer, chooseMinutes]);
 
   useEffect(() => {
     if (timerStatus === TIMER_STATUS.COUNTING) {
@@ -45,12 +30,7 @@ const Timer = () => {
       }
 
       let interval = setInterval(() => {
-        if (timerSeconds === 0)
-          setTimerMinutes((prevTimerMinutes) => prevTimerMinutes - 1);
-
-        setTimerSeconds((prevTimerSeconds) =>
-          prevTimerSeconds === 0 ? 59 : prevTimerSeconds - 1
-        );
+        dispatch(changeTimerValues());
       }, 1000);
 
       return () => {
@@ -60,10 +40,16 @@ const Timer = () => {
   }, [timerMinutes, timerSeconds, timerStatus, dispatch]);
 
   const onChangeTimerStatusHandler = () => {
-    dispatch(changeTimerStatus());
+    if (timerStatus === TIMER_STATUS.COUNTING)
+      dispatch(changeTimerStatus(TIMER_STATUS.PAUSED));
+    if (timerStatus === TIMER_STATUS.PAUSED)
+      dispatch(changeTimerStatus(TIMER_STATUS.COUNTING));
+    if (timerStatus === TIMER_STATUS.FINISHED)
+      dispatch(updateActiveTimerTotalMinutes());
   };
 
-  const percentage = ((timerMinutes * 60 + timerSeconds) / (25 * 60)) * 100;
+  const percentage =
+    ((timerMinutes * 60 + timerSeconds) / (totalMinutesActiveTimer * 60)) * 100;
 
   return (
     <div className={styles.timerContainer}>

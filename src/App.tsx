@@ -4,7 +4,7 @@ import Timer from './components/Timer/Timer';
 import TimerSwitch from './components/Timer/TimerSwitch';
 import settingsIconSrc from './assets/icon-settings.svg';
 import Modal from './components/Modal/Modal';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Notification from './components/Notification/Notification';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { resetTimerNotification } from './store/timerSlice';
@@ -27,7 +27,7 @@ const App = () => {
     if (timerNotification) {
       let timeout = setTimeout(() => {
         dispatch(resetTimerNotification());
-      }, 2000);
+      }, 4000);
 
       return () => {
         clearTimeout(timeout);
