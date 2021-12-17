@@ -1,0 +1,10 @@
+.notification {
+  background-color: var(--color-white);
+  border-radius: 8rem;
+  padding: 3rem 4rem;
+  position: fixed;
+  bottom: 3rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  max-width: 50rem;
+}

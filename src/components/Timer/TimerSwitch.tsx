@@ -6,7 +6,8 @@ import Button from '../UI/Button';
 import styles from './TimerSwitch.module.css';
 
 const TimerSwitch = () => {
-  const { activeTimer, changeActiveTimer } = useContext(TimerContext);
+  const { activeTimer, changeActiveTimer, timerStatus } =
+    useContext(TimerContext);
 
   const timersEntriesArr = Object.entries(TIMERS);
 
@@ -28,7 +29,7 @@ const TimerSwitch = () => {
           key={timerKey}
           active={timerName === activeTimer ? true : false}
           secondary
-          onClick={changeActiveTimer.bind(null, timerName)}
+          onClick={changeActiveTimer.bind(null, timerName, timerStatus)}
         >
           {timerName}
         </Button>

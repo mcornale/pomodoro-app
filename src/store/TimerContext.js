@@ -6,9 +6,13 @@ const TimerContext = createContext();
 const TimerContextProvider = (props) => {
   const [activeTimer, setActiveTimer] = useState(TIMERS.POMODORO);
   const [timerStatus, setTimerStatus] = useState(TIMER_STATUS.PAUSED);
+  const [timerNotification, setTimerNotification] = useState(null);
 
   const changeActiveTimer = (newActiveTimer) => {
-    setActiveTimer(newActiveTimer);
+    if (timerStatus === TIMER_STATUS.FINISHED) setActiveTimer(newActiveTimer);
+    else {
+      setTimerNotification('You have to consume your timer before switching');
+    }
   };
 
   const changeTimerStatus = (newTimerStatus) => {
@@ -26,6 +30,7 @@ const TimerContextProvider = (props) => {
 
   const timerContextValue = {
     activeTimer,
+    timerNotification,
     pomodoroMinutes: 25,
     shortBreakMinutes: 5,
     longBreakMinutes: 15,
@@ -34,6 +39,7 @@ const TimerContextProvider = (props) => {
     selectedColor: COLORS.ORANGE_RED,
     changeActiveTimer,
     changeTimerStatus,
+    setTimerNotification,
   };
 
   return (
