@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { TimerContextProvider } from './store/TimerContext';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <TimerContextProvider>
+    <Provider store={store}>
       <App />
-    </TimerContextProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

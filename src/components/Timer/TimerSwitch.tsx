@@ -1,19 +1,23 @@
-import { useContext } from 'react';
 import { TIMERS } from '../../constants';
-import { TimerContext } from '../../store/TimerContext';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeActiveTimer } from '../../store/timerSlice';
 import Button from '../UI/Button';
 
 import styles from './TimerSwitch.module.css';
 
 const TimerSwitch = () => {
-  const { activeTimer, changeActiveTimer, timerStatus } =
-    useContext(TimerContext);
+  const { activeTimer } = useAppSelector((state) => state.timer);
+  const dispatch = useAppDispatch();
 
   const timersEntriesArr = Object.entries(TIMERS);
 
   const activeTimerIndex = timersEntriesArr.findIndex(
     ([_, timerName]) => timerName === activeTimer
   );
+
+  const onChangeActiveTimerHandler = (timerName: string) => {
+    dispatch(changeActiveTimer(timerName));
+  };
 
   return (
     <nav className={styles.timerSwitch}>
@@ -29,7 +33,7 @@ const TimerSwitch = () => {
           key={timerKey}
           active={timerName === activeTimer ? true : false}
           secondary
-          onClick={changeActiveTimer.bind(null, timerName, timerStatus)}
+          onClick={onChangeActiveTimerHandler.bind(null, timerName)}
         >
           {timerName}
         </Button>

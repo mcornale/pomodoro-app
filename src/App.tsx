@@ -4,17 +4,17 @@ import Timer from './components/Timer/Timer';
 import TimerSwitch from './components/Timer/TimerSwitch';
 import settingsIconSrc from './assets/icon-settings.svg';
 import Modal from './components/Modal/Modal';
-import { useContext, useEffect } from 'react';
-import { TimerContext } from './store/TimerContext';
+import { useEffect, useState } from 'react';
 import Notification from './components/Notification/Notification';
+import { useAppDispatch, useAppSelector } from './store/hooks';
+import { resetTimerNotification } from './store/timerSlice';
 
 const App = () => {
-  const {
-    selectedFont,
-    selectedColor,
-    timerNotification,
-    setTimerNotification,
-  } = useContext(TimerContext);
+  const { selectedFont, selectedColor, timerNotification } = useAppSelector(
+    (state) => state.timer
+  );
+
+  const dispatch = useAppDispatch();
 
   document.documentElement.style.setProperty(
     '--font-selected',
@@ -26,14 +26,14 @@ const App = () => {
   useEffect(() => {
     if (timerNotification) {
       let timeout = setTimeout(() => {
-        setTimerNotification(null);
+        dispatch(resetTimerNotification());
       }, 2000);
 
       return () => {
         clearTimeout(timeout);
       };
     }
-  }, [timerNotification, setTimerNotification]);
+  }, [timerNotification, dispatch]);
 
   return (
     <main>

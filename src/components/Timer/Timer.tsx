@@ -1,6 +1,7 @@
-import { useContext, useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { TIMERS, TIMER_ACTIONS, TIMER_STATUS } from '../../constants';
-import { TimerContext } from '../../store/TimerContext';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { changeTimerStatus } from '../../store/timerSlice';
 import Button from '../UI/Button';
 import ProgressBar from './ProgressBar';
 import styles from './Timer.module.css';
@@ -12,8 +13,9 @@ const Timer = () => {
     longBreakMinutes,
     activeTimer,
     timerStatus,
-    changeTimerStatus,
-  } = useContext(TimerContext);
+  } = useAppSelector((state) => state.timer);
+
+  const dispatch = useAppDispatch();
 
   const [timerMinutes, setTimerMinutes] = useState(0);
   const [timerSeconds, setTimerSeconds] = useState(0);
@@ -31,14 +33,14 @@ const Timer = () => {
   }, [timerStatus]);
 
   useEffect(() => {
-    setTimerMinutes(chooseMinutes());
+    setTimerMinutes(25);
     setTimerSeconds(0);
   }, [activeTimer, chooseMinutes]);
 
   useEffect(() => {
     if (timerStatus === TIMER_STATUS.COUNTING) {
       if (timerMinutes === 0 && timerSeconds === 0) {
-        changeTimerStatus(TIMER_STATUS.FINISHED);
+        dispatch(changeTimerStatus(TIMER_STATUS.FINISHED));
         return;
       }
 
@@ -55,10 +57,13 @@ const Timer = () => {
         clearInterval(interval);
       };
     }
-  }, [timerMinutes, timerSeconds, changeTimerStatus, timerStatus]);
+  }, [timerMinutes, timerSeconds, timerStatus, dispatch]);
 
-  const percentage =
-    ((timerMinutes * 60 + timerSeconds) / (chooseMinutes() * 60)) * 100;
+  const onChangeTimerStatusHandler = () => {
+    dispatch(changeTimerStatus());
+  };
+
+  const percentage = ((timerMinutes * 60 + timerSeconds) / (25 * 60)) * 100;
 
   return (
     <div className={styles.timerContainer}>
@@ -68,7 +73,7 @@ const Timer = () => {
           {timerMinutes.toString().padStart(2, '0')}:
           {timerSeconds.toString().padStart(2, '0')}
         </h1>
-        <Button onClick={changeTimerStatus.bind(null, null)}>
+        <Button onClick={onChangeTimerStatusHandler.bind(null)}>
           <h3>{chooseTimerAction()}</h3>
         </Button>
       </div>
