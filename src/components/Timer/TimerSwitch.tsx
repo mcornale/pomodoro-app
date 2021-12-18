@@ -15,7 +15,7 @@ const TimerSwitch = () => {
   const timersEntriesArr = Object.entries(TIMERS);
 
   const activeTimerIndex = timersEntriesArr.findIndex(
-    ([_, timerName]) => timerName === activeTimer
+    ([_, timerValue]) => timerValue.NAME === activeTimer
   );
 
   const onChangeActiveTimerHandler = (timerName: string) => {
@@ -32,14 +32,14 @@ const TimerSwitch = () => {
           transform: `translate(calc(100% * ${activeTimerIndex}), -50%)`,
         }}
       ></div>
-      {timersEntriesArr.map(([timerKey, timerName]) => (
+      {timersEntriesArr.map(([timerKey, timerValue]) => (
         <Button
           key={timerKey}
-          active={timerName === activeTimer ? true : false}
+          active={timerValue.NAME === activeTimer ? true : false}
           secondary
-          onClick={onChangeActiveTimerHandler.bind(null, timerName)}
+          onClick={onChangeActiveTimerHandler.bind(null, timerValue.NAME)}
         >
-          {timerName}
+          {timerValue.NAME}
         </Button>
       ))}
     </nav>

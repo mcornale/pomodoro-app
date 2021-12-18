@@ -16,14 +16,14 @@ type initialStateType = {
 };
 
 const initialState: initialStateType = {
-  activeTimer: TIMERS.POMODORO,
-  timerMinutes: 25,
+  activeTimer: TIMERS.POMODORO.NAME,
+  timerMinutes: TIMERS.POMODORO.MINUTES,
   timerSeconds: 0,
   timerNotification: null,
-  pomodoroMinutes: 25,
-  shortBreakMinutes: 5,
-  longBreakMinutes: 15,
-  totalMinutesActiveTimer: 25,
+  pomodoroMinutes: TIMERS.POMODORO.MINUTES,
+  shortBreakMinutes: TIMERS.SHORT_BREAK.MINUTES,
+  longBreakMinutes: TIMERS.LONG_BREAK.MINUTES,
+  totalMinutesActiveTimer: TIMERS.POMODORO.MINUTES,
   timerStatus: TIMER_STATUS.PAUSED,
   selectedFont: FONTS.KUMBH_SANS,
   selectedColor: COLORS.ORANGE_RED,
@@ -44,7 +44,7 @@ const timerSlice = createSlice({
 
       if (state.timerStatus === TIMER_STATUS.COUNTING) {
         state.timerNotification =
-          'Current timer is running. You cannot change mode';
+          'A timer is running. Pause the timer to change mode';
         return;
       }
 
@@ -56,11 +56,11 @@ const timerSlice = createSlice({
 
       let choosenMinutes = 0;
 
-      if (state.activeTimer === TIMERS.POMODORO)
+      if (state.activeTimer === TIMERS.POMODORO.NAME)
         choosenMinutes = state.pomodoroMinutes;
-      if (state.activeTimer === TIMERS.SHORT_BREAK)
+      if (state.activeTimer === TIMERS.SHORT_BREAK.NAME)
         choosenMinutes = state.shortBreakMinutes;
-      if (state.activeTimer === TIMERS.LONG_BREAK)
+      if (state.activeTimer === TIMERS.LONG_BREAK.NAME)
         choosenMinutes = state.longBreakMinutes;
 
       state.totalMinutesActiveTimer = state.timerMinutes = choosenMinutes;

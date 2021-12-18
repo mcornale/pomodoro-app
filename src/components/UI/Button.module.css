@@ -37,3 +37,7 @@
   background-color: var(--color-dark-blue-2);
   margin-top: 3rem;
 }
+
+.buttonArrow {
+  padding: 0.2rem 0rem;
+}

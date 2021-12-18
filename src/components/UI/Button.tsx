@@ -5,14 +5,23 @@ type Props = {
   primary?: boolean;
   secondary?: boolean;
   notification?: boolean;
-  type?: 'button' | 'submit' | 'reset' | undefined;
+  type?: 'submit' | undefined;
   active?: boolean;
+  arrow?: boolean;
   onClick?: () => void;
 };
 
 const Button = (props: Props) => {
-  const { children, primary, secondary, notification, type, active, onClick } =
-    props;
+  const {
+    children,
+    primary,
+    secondary,
+    notification,
+    type,
+    active,
+    arrow,
+    onClick,
+  } = props;
 
   return (
     <button
@@ -20,8 +29,8 @@ const Button = (props: Props) => {
         secondary ? styles.buttonSecondary : ''
       } ${active ? styles.buttonActive : ''} ${
         notification ? styles.buttonNotification : ''
-      }`}
-      type={type}
+      } ${arrow ? styles.buttonArrow : ''}`}
+      type={type ? type : 'button'}
       {...(onClick ? { onClick: onClick } : '')}
     >
       {children}

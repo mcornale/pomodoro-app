@@ -29,7 +29,7 @@
   gap: 2rem;
 }
 
-.settingsForm button {
+.settingsForm button[type='submit'] {
   position: absolute;
   bottom: 0;
   left: 50%;

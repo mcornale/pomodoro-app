@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   border-radius: 1rem;
-  padding: 1.6rem;
+  padding: 0.8rem 1.8rem;
   margin-top: 0.8rem;
 }
 
@@ -18,10 +18,10 @@
   font-size: var(--font-size-body-1);
   font-weight: 700;
   width: 10rem;
+  pointer-events: none;
 }
 
 .inputNumberArrows {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
 }
