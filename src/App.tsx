@@ -7,8 +7,8 @@ import { useEffect } from 'react';
 import Notification from './components/Notification/Notification';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { resetTimerNotification } from './store/timerSlice';
-import SettingsIcon from './components/Icons/SettingsIcon';
 import { changeSettingsModalState } from './store/modalSlice';
+import Icon from './components/Icon';
 
 const App = () => {
   const { selectedFont, selectedColor, timerNotification } = useAppSelector(
@@ -48,7 +48,7 @@ const App = () => {
       <TimerSwitch />
       <Timer />
       <Button onClick={onOpenModalHandler}>
-        <SettingsIcon />
+        <Icon settingsIcon />
       </Button>
       {timerNotification && <Notification />}
       {isSettingsModalOpen && <Modal />}

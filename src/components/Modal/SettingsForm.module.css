@@ -1,0 +1,37 @@
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 3rem 5rem;
+}
+
+.settingsForm > div {
+  display: flex;
+  padding: 2rem 0;
+}
+
+.settingsForm > div:first-child {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.settingsForm > div:not(:first-child) {
+  justify-content: space-between;
+  align-items: center;
+  border-top: 0.1rem solid #e3e1e1;
+}
+
+.settingsFormInputsTitle {
+  margin-bottom: 2rem;
+}
+
+.settingsFormInputsContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.settingsForm button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}

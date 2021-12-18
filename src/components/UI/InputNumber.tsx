@@ -1,6 +1,4 @@
-import ArrowDownIcon from '../Icons/ArrowDownIcon';
-import ArrowUpIcon from '../Icons/ArrowUpIcon';
-
+import Icon from '../Icon';
 import styles from './InputNumber.module.css';
 
 type Props = {
@@ -16,8 +14,8 @@ const InputNumber = (props: Props) => {
       <div className={styles.inputNumberContainer}>
         <input className={styles.inputNumber} type='number' min='0' />
         <div className={styles.inputNumberArrows}>
-          <ArrowUpIcon />
-          <ArrowDownIcon />
+          <Icon arrowUpIcon />
+          <Icon arrowDownIcon />
         </div>
       </div>
     </div>
