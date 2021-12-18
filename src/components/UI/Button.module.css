@@ -1,7 +1,6 @@
 .button {
   color: var(--color-light-blue);
   background-color: transparent;
-  padding: 1rem;
   border-radius: 3rem;
   transition: all 0.6s;
 }
@@ -42,5 +41,5 @@
 }
 
 .buttonArrow {
-  padding: 0.2rem 0rem;
+  display: flex;
 }

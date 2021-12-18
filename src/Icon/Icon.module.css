@@ -1,0 +1,38 @@
+.settingsIcon {
+  box-sizing: content-box;
+  padding: 1rem;
+}
+
+.settingsIcon path {
+  transition: all 0.2s linear;
+}
+
+.settingsIcon:hover path {
+  opacity: 1;
+}
+
+.arrowIcon {
+  box-sizing: content-box;
+  padding: 0.6rem;
+}
+
+.arrowIcon path {
+  transition: all 0.1s linear;
+}
+
+.arrowIcon:hover path {
+  stroke-opacity: 1;
+}
+
+.closeIcon {
+  box-sizing: content-box;
+  padding: 1rem;
+}
+
+.closeIcon path {
+  transition: all 0.2s linear;
+}
+
+.closeIcon:hover path {
+  opacity: 1;
+}

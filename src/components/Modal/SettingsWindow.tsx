@@ -1,6 +1,6 @@
 import { useAppDispatch } from '../../store/hooks';
 import { changeSettingsModalState } from '../../store/modalSlice';
-import Icon from '../Icon';
+import Icon from '../../Icon/Icon';
 import Button from '../UI/Button';
 import SettingsForm from './SettingsForm';
 

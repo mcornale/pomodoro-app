@@ -8,7 +8,7 @@ import Notification from './components/Notification/Notification';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { resetTimerNotification } from './store/timerSlice';
 import { changeSettingsModalState } from './store/modalSlice';
-import Icon from './components/Icon';
+import Icon from './Icon/Icon';
 
 const App = () => {
   const { selectedFont, selectedColor, timerNotification } = useAppSelector(
