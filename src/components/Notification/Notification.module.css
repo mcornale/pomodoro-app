@@ -1,7 +1,7 @@
 .notification {
   background-color: var(--color-white);
   border-radius: 2.5rem;
-  padding: 3rem;
+  padding: 4rem;
   position: fixed;
   bottom: 3rem;
   font-size: 1.8rem;

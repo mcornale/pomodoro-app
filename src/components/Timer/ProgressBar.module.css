@@ -12,5 +12,5 @@
   stroke-dasharray: var(--dash-array);
   transform-origin: center center;
   transform: rotate(-90deg);
-  transition: all 1s linear;
+  transition: stroke-dashoffset 1s linear, background-color 0.4s linear;
 }

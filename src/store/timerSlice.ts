@@ -51,8 +51,7 @@ const timerSlice = createSlice({
       const { payload: newActiveTimer } = action;
 
       if (state.timerStatus === TIMER_STATUS.COUNTING) {
-        state.timerNotification =
-          'A timer is running. Pause the timer to change mode';
+        state.timerNotification = 'A timer is running. Pause it to change mode';
         return;
       }
 
