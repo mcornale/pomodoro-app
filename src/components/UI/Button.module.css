@@ -1,7 +1,7 @@
 .button {
   color: var(--color-light-blue);
   background-color: transparent;
-  padding: 1.8rem 0;
+  padding: 1.8rem 1rem;
   border-radius: 3rem;
   transition: all 0.4s;
 }

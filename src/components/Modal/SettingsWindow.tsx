@@ -1,3 +1,5 @@
+import { useAppDispatch } from '../../store/hooks';
+import { changeSettingsModalState } from '../../store/modalSlice';
 import CloseIcon from '../Icons/CloseIcon';
 import Button from '../UI/Button';
 import InputNumber from '../UI/InputNumber';
@@ -6,11 +8,19 @@ import InputRadio from '../UI/InputRadio';
 import styles from './SettingsWindow.module.css';
 
 const SettingsWindow = () => {
+  const dispatch = useAppDispatch();
+
+  const onCloseModalHandler = () => {
+    dispatch(changeSettingsModalState());
+  };
+
   return (
     <section className={styles.settingsWindow}>
       <header className={styles.settingsWindowHeader}>
         <h2>Settings</h2>
-        <CloseIcon />
+        <Button onClick={onCloseModalHandler}>
+          <CloseIcon />
+        </Button>
       </header>
       <form className={styles.settingsWindowForm}>
         <div>
