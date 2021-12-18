@@ -1,18 +1,40 @@
+import { forwardRef } from 'react';
 import styles from './InputRadio.module.css';
 
 type Props = {
+  id: string;
+  name: string;
   colorRadio?: boolean;
   fontRadio?: boolean;
   fontFamily?: string;
   colorHex?: string;
+  checked: boolean;
+  onChangeChecked: () => void;
 };
 
-const InputRadio = (props: Props) => {
-  const { colorRadio, fontRadio, fontFamily, colorHex } = props;
+const InputRadio = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const {
+    id,
+    name,
+    colorRadio,
+    fontRadio,
+    fontFamily,
+    colorHex,
+    checked,
+    onChangeChecked,
+  } = props;
 
   return (
-    <label className={styles.inputRadioContainer}>
-      <input className={styles.inputRadio} type='radio' />
+    <label htmlFor={id} className={styles.inputRadioContainer}>
+      <input
+        id={id}
+        name={name}
+        className={styles.inputRadio}
+        type='radio'
+        checked={checked}
+        onChange={onChangeChecked}
+        ref={checked ? ref : undefined}
+      />
       <span
         className={`${styles.inputRadioCustom} ${
           colorRadio ? styles.inputRadioColor : ''
@@ -24,6 +46,6 @@ const InputRadio = (props: Props) => {
       ></span>
     </label>
   );
-};
+});
 
 export default InputRadio;

@@ -1,9 +1,10 @@
-import React, { useReducer } from 'react';
+import React, { forwardRef, useReducer } from 'react';
 import Icon from '../Icon';
 import Button from './Button';
 import styles from './InputNumber.module.css';
 
 type Props = {
+  id: string;
   label: string;
   value: number;
 };
@@ -27,8 +28,8 @@ const inputNumberReducer = (state: ValueState, action: ValueAction) => {
   }
 };
 
-const InputNumber = (props: Props) => {
-  const { label, value } = props;
+const InputNumber = forwardRef<HTMLInputElement, Props>((props, ref) => {
+  const { id, label, value } = props;
 
   const [inputNumberValue, dispatchInputNumberValue] = useReducer(
     inputNumberReducer,
@@ -45,14 +46,19 @@ const InputNumber = (props: Props) => {
 
   return (
     <div>
-      <label className={styles.inputNumberLabel}>{label}</label>
+      <label htmlFor={id} className={styles.inputNumberLabel}>
+        {label}
+      </label>
       <div className={styles.inputNumberContainer}>
         <input
+          id={id}
           className={styles.inputNumber}
           type='number'
+          name={label}
           min='0'
           step={1}
           value={inputNumberValue.value}
+          ref={ref}
           readOnly
         />
         <div className={styles.inputNumberArrows}>
@@ -66,6 +72,6 @@ const InputNumber = (props: Props) => {
       </div>
     </div>
   );
-};
+});
 
 export default InputNumber;

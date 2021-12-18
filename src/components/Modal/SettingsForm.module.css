@@ -1,7 +1,7 @@
 .settingsForm {
   display: flex;
   flex-direction: column;
-  padding: 0rem 3rem 5rem;
+  padding: 0rem 4rem 5rem;
 }
 
 .settingsForm > div {

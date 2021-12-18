@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { COLORS, FONTS, TIMERS, TIMER_STATUS } from '../constants';
 
-type initialStateType = {
+type InitialStateType = {
   activeTimer: string;
   timerMinutes: number;
   timerSeconds: number;
@@ -15,7 +15,7 @@ type initialStateType = {
   selectedColor: string;
 };
 
-const initialState: initialStateType = {
+const initialState: InitialStateType = {
   activeTimer: TIMERS.POMODORO.NAME,
   timerMinutes: TIMERS.POMODORO.MINUTES,
   timerSeconds: 0,
@@ -27,6 +27,14 @@ const initialState: initialStateType = {
   timerStatus: TIMER_STATUS.PAUSED,
   selectedFont: FONTS.KUMBH_SANS,
   selectedColor: COLORS.ORANGE_RED,
+};
+
+type Settings = {
+  newPomodoroMinutes: number;
+  newShortBreakMinutes: number;
+  newLongBreakMinutes: number;
+  newSelectedFont: string;
+  newSelectedColor: string;
 };
 
 const timerSlice = createSlice({
@@ -76,6 +84,21 @@ const timerSlice = createSlice({
     resetTimerNotification: (state) => {
       state.timerNotification = null;
     },
+    updateSettings: (state, { payload }: PayloadAction<Settings>) => {
+      const {
+        newPomodoroMinutes,
+        newShortBreakMinutes,
+        newLongBreakMinutes,
+        newSelectedFont,
+        newSelectedColor,
+      } = payload;
+
+      state.pomodoroMinutes = newPomodoroMinutes;
+      state.shortBreakMinutes = newShortBreakMinutes;
+      state.longBreakMinutes = newLongBreakMinutes;
+      state.selectedFont = newSelectedFont;
+      state.selectedColor = newSelectedColor;
+    },
   },
 });
 
@@ -85,5 +108,6 @@ export const {
   changeTimerStatus,
   resetTimerNotification,
   updateActiveTimerTotalMinutes,
+  updateSettings,
 } = timerSlice.actions;
 export default timerSlice.reducer;
