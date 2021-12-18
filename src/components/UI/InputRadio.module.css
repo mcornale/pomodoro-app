@@ -31,19 +31,6 @@
   font-weight: 600;
 }
 
-.inputRadioContainer:nth-child(1) .inputRadioFont::after {
-  font-family: var(--font-family-1);
-}
-
-.inputRadioContainer:nth-child(2) .inputRadioFont::after {
-  font-family: var(--font-family-2);
-  font-weight: 500;
-}
-
-.inputRadioContainer:nth-child(3) .inputRadioFont::after {
-  font-family: var(--font-family-3);
-}
-
 .inputRadioContainer:nth-child(1) .inputRadioColor {
   background-color: var(--color-selected);
 }

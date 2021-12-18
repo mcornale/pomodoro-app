@@ -18,7 +18,7 @@ const TIMER_ACTIONS = {
 
 const COLORS = {
   ORANGE_RED: '#f87070',
-  TEAL: '#f87070',
+  TEAL: '#70F3F8',
   PURPLE: '#d881f8',
 };
 

@@ -3,10 +3,16 @@ import ArrowUpIcon from '../Icons/ArrowUpIcon';
 
 import styles from './InputNumber.module.css';
 
-const InputNumber = () => {
+type Props = {
+  label: string;
+};
+
+const InputNumber = (props: Props) => {
+  const { label } = props;
+
   return (
     <div>
-      <label className={styles.inputNumberLabel}>pomodoro</label>
+      <label className={styles.inputNumberLabel}>{label}</label>
       <div className={styles.inputNumberContainer}>
         <input className={styles.inputNumber} type='number' min='0' />
         <div className={styles.inputNumberArrows}>
