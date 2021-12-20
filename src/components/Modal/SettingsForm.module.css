@@ -20,7 +20,7 @@
   border-top: 0.1rem solid #e3e1e1;
 }
 
-.settingsFormInputsTitle {
+.settingsForm > div:first-child .settingsFormInputsTitle {
   margin-bottom: 2rem;
 }
 
@@ -34,4 +34,46 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
+}
+
+@media (max-width: 37.5em) {
+  .settingsForm {
+    padding: 0rem 3rem 4rem;
+  }
+
+  .settingsForm > div:first-child {
+    align-items: center;
+  }
+
+  .settingsForm > div:not(:first-child) {
+    flex-direction: column;
+  }
+
+  .settingsFormInputsTitle {
+    margin-bottom: 1.4rem !important;
+  }
+
+  .settingsFormInputsContainer {
+    width: 100%;
+  }
+
+  .settingsForm > div:first-child .settingsFormInputsContainer {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .settingsForm > div:not(:first-child) .settingsFormInputsContainer {
+    gap: 1.5rem;
+  }
+
+  .settingsForm > div:first-child .settingsFormInputsContainer > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .settingsForm > div:not(:first-child) .settingsFormInputsContainer {
+    justify-content: center;
+  }
 }

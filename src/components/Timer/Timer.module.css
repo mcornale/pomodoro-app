@@ -28,3 +28,20 @@
 .timerValue {
   margin-bottom: 2rem;
 }
+
+@media (max-width: 37.5em) {
+  .timerContainer {
+    width: 34rem;
+    height: 34rem;
+    margin: 6rem 0 8rem;
+  }
+
+  .timer {
+    width: 30rem;
+    height: 30rem;
+  }
+
+  .timerValue {
+    margin-bottom: 0rem;
+  }
+}

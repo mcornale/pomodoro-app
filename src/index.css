@@ -44,7 +44,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem;
+  padding: 6rem 0 6rem;
   font-weight: 700;
 }
 
@@ -101,4 +101,13 @@ h4 {
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
   letter-spacing: var(--letter-spacing-h4);
+}
+
+@media (max-width: 37.5em) {
+  :root {
+    --font-size-h1: 7rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.4rem;
+    --font-size-h4: 1.2rem;
+  }
 }

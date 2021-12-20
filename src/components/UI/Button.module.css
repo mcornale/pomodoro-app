@@ -74,3 +74,14 @@
 .buttonArrow {
   display: flex;
 }
+
+@media (max-width: 37.5em) {
+  .buttonPrimary {
+    font-size: var(--font-size-body-1);
+  }
+
+  .buttonSecondary {
+    width: 10rem;
+    font-size: var(--font-size-body-2);
+  }
+}

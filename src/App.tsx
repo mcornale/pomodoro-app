@@ -1,5 +1,5 @@
 import Button from './components/UI/Button';
-import Logo from './components/Logo';
+import Logo from './components/Logo/Logo';
 import Timer from './components/Timer/Timer';
 import TimerSwitch from './components/Timer/TimerSwitch';
 import Modal from './components/Modal/Modal';
@@ -8,7 +8,7 @@ import Notification from './components/Notification/Notification';
 import { useAppDispatch, useAppSelector } from './store/hooks';
 import { resetTimerNotification } from './store/timerSlice';
 import { changeSettingsModalState } from './store/modalSlice';
-import Icon from './Icon/Icon';
+import Icon from './components/Icon/Icon';
 
 const App = () => {
   const { selectedFont, selectedColor, timerNotification } = useAppSelector(

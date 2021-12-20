@@ -101,7 +101,7 @@ const SettingsForm = () => {
         </div>
       </div>
       <div>
-        <h4>Font</h4>
+        <h4 className={styles.settingsFormInputsTitle}> Font</h4>
         <div className={styles.settingsFormInputsContainer}>
           {Object.entries(FONTS).map(([fontKey, fontName]) => (
             <InputRadio
@@ -117,7 +117,7 @@ const SettingsForm = () => {
         </div>
       </div>
       <div>
-        <h4>Color</h4>
+        <h4 className={styles.settingsFormInputsTitle}>Color</h4>
         <div className={styles.settingsFormInputsContainer}>
           {Object.entries(COLORS).map(([colorKey, colorHex]) => (
             <InputRadio

@@ -14,3 +14,9 @@
   transform: rotate(-90deg);
   transition: stroke-dashoffset 1s linear, stroke 0.8s linear;
 }
+
+@media (max-width: 37.5em) {
+  .progressBar circle {
+    --dash-array: 848;
+  }
+}

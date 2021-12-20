@@ -36,3 +36,9 @@
 .closeIcon:hover path {
   opacity: 1;
 }
+
+@media (max-width: 37.5em) {
+  .arrowIcon {
+    padding: 0.4rem;
+  }
+}
