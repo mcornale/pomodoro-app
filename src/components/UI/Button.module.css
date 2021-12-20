@@ -2,7 +2,15 @@
   color: var(--color-light-blue);
   background-color: transparent;
   border-radius: 3rem;
-  transition: all 0.6s;
+  transition: all 0.3s linear;
+}
+
+.button h3 {
+  transition: all 0.3s linear;
+}
+
+.button:hover h3 {
+  color: var(--color-selected);
 }
 
 .buttonPrimary,
@@ -17,11 +25,34 @@
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-white);
+  overflow: hidden;
+}
+
+.buttonPrimary::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background-color: var(--color-white);
+  transition: all 0.3s linear;
+}
+
+.buttonPrimary:hover::before {
+  opacity: 0.15;
 }
 
 .buttonSecondary {
   font-size: var(--font-size-body-1);
   opacity: 0.4;
+}
+
+.buttonSecondary:hover {
+  opacity: 1;
 }
 
 .buttonActive {
