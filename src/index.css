@@ -95,12 +95,14 @@ h3 {
   font-size: var(--font-size-h3);
   line-height: var(--line-height-h3);
   letter-spacing: var(--letter-spacing-h3);
+  padding-left: var(--letter-spacing-h3);
 }
 
 h4 {
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
   letter-spacing: var(--letter-spacing-h4);
+  padding-left: var(--letter-spacing-h4);
 }
 
 @media (max-width: 37.5em) {
