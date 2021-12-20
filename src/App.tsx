@@ -6,14 +6,14 @@ import Modal from './components/Modal/Modal';
 import { useEffect } from 'react';
 import Notification from './components/Notification/Notification';
 import { useAppDispatch, useAppSelector } from './store/hooks';
-import { resetTimerNotification } from './store/timerSlice';
+import { resetTimerNotificationVisibility } from './store/timerSlice';
 import { changeSettingsModalState } from './store/modalSlice';
 import Icon from './components/Icon/Icon';
+import { AnimatePresence } from 'framer-motion';
 
 const App = () => {
-  const { selectedFont, selectedColor, timerNotification } = useAppSelector(
-    (state) => state.timer
-  );
+  const { selectedFont, selectedColor, isTimerNotificationVisible } =
+    useAppSelector((state) => state.timer);
 
   const { isSettingsModalOpen } = useAppSelector((state) => state.modal);
 
@@ -31,16 +31,16 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (timerNotification) {
+    if (isTimerNotificationVisible) {
       let timeout = setTimeout(() => {
-        dispatch(resetTimerNotification());
-      }, 4000);
+        dispatch(resetTimerNotificationVisibility());
+      }, 3000);
 
       return () => {
         clearTimeout(timeout);
       };
     }
-  }, [timerNotification, dispatch]);
+  }, [isTimerNotificationVisible, dispatch]);
 
   return (
     <main>
@@ -50,8 +50,10 @@ const App = () => {
       <Button onClick={onOpenModalHandler}>
         <Icon settingsIcon />
       </Button>
-      {timerNotification && <Notification />}
-      {isSettingsModalOpen && <Modal />}
+      <AnimatePresence>
+        {isTimerNotificationVisible && <Notification />}
+        {isSettingsModalOpen && <Modal />}
+      </AnimatePresence>
     </main>
   );
 };

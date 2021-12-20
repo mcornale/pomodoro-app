@@ -5,7 +5,7 @@ type InitialStateType = {
   activeTimer: string;
   timerMinutes: number;
   timerSeconds: number;
-  timerNotification: null | string;
+  isTimerNotificationVisible: boolean;
   pomodoroMinutes: number;
   shortBreakMinutes: number;
   longBreakMinutes: number;
@@ -19,7 +19,7 @@ const initialState: InitialStateType = {
   activeTimer: TIMERS.POMODORO.NAME,
   timerMinutes: TIMERS.POMODORO.MINUTES,
   timerSeconds: 0,
-  timerNotification: null,
+  isTimerNotificationVisible: false,
   pomodoroMinutes: TIMERS.POMODORO.MINUTES,
   shortBreakMinutes: TIMERS.SHORT_BREAK.MINUTES,
   longBreakMinutes: TIMERS.LONG_BREAK.MINUTES,
@@ -51,7 +51,7 @@ const timerSlice = createSlice({
       const { payload: newActiveTimer } = action;
 
       if (state.timerStatus === TIMER_STATUS.COUNTING) {
-        state.timerNotification = 'A timer is running. Pause it to change mode';
+        state.isTimerNotificationVisible = true;
         return;
       }
 
@@ -80,8 +80,8 @@ const timerSlice = createSlice({
 
       state.timerStatus = newTimerStatus;
     },
-    resetTimerNotification: (state) => {
-      state.timerNotification = null;
+    resetTimerNotificationVisibility: (state) => {
+      state.isTimerNotificationVisible = false;
     },
     updateSettings: (state, { payload }: PayloadAction<Settings>) => {
       const {
@@ -105,7 +105,7 @@ export const {
   changeTimerValues,
   changeActiveTimer,
   changeTimerStatus,
-  resetTimerNotification,
+  resetTimerNotificationVisibility,
   updateActiveTimerTotalMinutes,
   updateSettings,
 } = timerSlice.actions;

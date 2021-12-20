@@ -17,10 +17,10 @@
 
 @media (max-width: 37.5em) {
   .settingsWindow {
+    top: calc(50% - 4rem);
     width: 90vw;
     max-width: 33rem;
-    top: 4rem;
-    transform: translate(-50%, 0%);
+    transform: translate(-50%, -50%);
   }
 
   .settingsWindowHeader {
