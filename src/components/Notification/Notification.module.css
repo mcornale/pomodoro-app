@@ -9,3 +9,11 @@
   max-width: 50rem;
   text-align: center;
 }
+
+@media (max-width: 37.5em) {
+  .notification {
+    padding: 2.5rem;
+    font-size: 1.4rem;
+    max-width: 90vw;
+  }
+}
