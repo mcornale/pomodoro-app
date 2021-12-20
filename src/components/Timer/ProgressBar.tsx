@@ -15,7 +15,7 @@ const ProgressBar = (props: Props) => {
         r='45%'
         fill='none'
         style={{
-          strokeDashoffset: `calc(var(--dash-array) - (var(--dash-array) * ${percentage}) / 100)`,
+          strokeDashoffset: `calc(var(--dash-array) - (var(--dash-array) * ${percentage}) / -100)`,
         }}
       ></circle>
     </svg>
