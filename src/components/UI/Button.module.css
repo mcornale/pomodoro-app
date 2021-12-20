@@ -9,8 +9,10 @@
   transition: all 0.3s linear;
 }
 
-.button:hover h3 {
-  color: var(--color-selected);
+@media (hover: hover) {
+  .button:hover h3 {
+    color: var(--color-selected);
+  }
 }
 
 .buttonPrimary,
@@ -42,8 +44,10 @@
   transition: all 0.3s linear;
 }
 
-.buttonPrimary:hover::before {
-  opacity: 0.15;
+@media (hover: hover) {
+  .buttonPrimary:hover::before {
+    opacity: 0.15;
+  }
 }
 
 .buttonSecondary {
@@ -51,8 +55,10 @@
   opacity: 0.4;
 }
 
-.buttonSecondary:hover {
-  opacity: 1;
+@media (hover: hover) {
+  .buttonSecondary:hover {
+    opacity: 1;
+  }
 }
 
 .buttonActive {
@@ -81,7 +87,7 @@
   }
 
   .buttonSecondary {
-    width: 10rem;
+    width: 11rem;
     font-size: var(--font-size-body-2);
   }
 }

@@ -7,8 +7,10 @@
   transition: all 0.2s linear;
 }
 
-.settingsIcon:hover path {
-  opacity: 1;
+@media (hover: hover) {
+  .settingsIcon:hover path {
+    opacity: 1;
+  }
 }
 
 .arrowIcon {
@@ -20,8 +22,10 @@
   transition: all 0.1s linear;
 }
 
-.arrowIcon:hover path {
-  stroke-opacity: 1;
+@media (hover: hover) {
+  .arrowIcon:hover path {
+    stroke-opacity: 1;
+  }
 }
 
 .closeIcon {
@@ -33,8 +37,10 @@
   transition: all 0.2s linear;
 }
 
-.closeIcon:hover path {
-  opacity: 1;
+@media (hover: hover) {
+  .closeIcon:hover path {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 37.5em) {
