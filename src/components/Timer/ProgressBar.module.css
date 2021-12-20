@@ -5,7 +5,7 @@
 }
 
 .progressBar circle {
-  --dash-array: 1186;
+  --dash-array: 1186px;
   stroke: var(--color-selected);
   stroke-width: 10;
   stroke-linecap: round;
@@ -17,6 +17,6 @@
 
 @media (max-width: 37.5em) {
   .progressBar circle {
-    --dash-array: 848;
+    --dash-array: 848px;
   }
 }
