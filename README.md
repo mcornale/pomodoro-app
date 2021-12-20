@@ -26,6 +26,6 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS (CSS Modules)
 - TypeScript
-- React (useState, useEffect, Custom Hooks, Portals, ForwardRef ecc...)
+- React (useState, useEffect, useCallback, Portals, ForwardRef ecc...)
 - Redux (Redux Toolkit)
 - Framer Motion
