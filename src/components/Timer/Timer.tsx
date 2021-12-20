@@ -44,8 +44,10 @@ const Timer = () => {
       dispatch(changeTimerStatus(TIMER_STATUS.PAUSED));
     if (timerStatus === TIMER_STATUS.PAUSED)
       dispatch(changeTimerStatus(TIMER_STATUS.COUNTING));
-    if (timerStatus === TIMER_STATUS.FINISHED)
+    if (timerStatus === TIMER_STATUS.FINISHED) {
       dispatch(updateActiveTimerTotalMinutes());
+      dispatch(changeTimerStatus(TIMER_STATUS.COUNTING));
+    }
   };
 
   const percentage =
