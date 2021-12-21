@@ -5,9 +5,9 @@ import styles from './Notification.module.css';
 const Notification = () => {
   return (
     <motion.div
-      initial={{ y: '100%' }}
-      animate={{ y: '-50%' }}
-      exit={{ y: '100%' }}
+      initial={{ x: '-50%', y: '100%' }}
+      animate={{ x: '-50%', y: '-50%' }}
+      exit={{ x: '-50%', y: '100%' }}
       transition={{ type: 'tween', duration: 0.7, ease: 'backOut' }}
       className={styles.notification}
     >
