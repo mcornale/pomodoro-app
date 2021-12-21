@@ -7,6 +7,7 @@ type Props = {
   id: string;
   label: string;
   value: number;
+  disabled: boolean;
 };
 
 type ValueState = {
@@ -29,7 +30,7 @@ const inputNumberReducer = (state: ValueState, action: ValueAction) => {
 };
 
 const InputNumber = forwardRef<HTMLInputElement, Props>((props, ref) => {
-  const { id, label, value } = props;
+  const { id, label, value, disabled } = props;
 
   const [inputNumberValue, dispatchInputNumberValue] = useReducer(
     inputNumberReducer,
@@ -37,11 +38,12 @@ const InputNumber = forwardRef<HTMLInputElement, Props>((props, ref) => {
   );
 
   const onArrowUpClickHandler = () => {
-    dispatchInputNumberValue({ type: 'increment' });
+    if (!disabled) dispatchInputNumberValue({ type: 'increment' });
   };
 
   const onArrowDownClickHandler = () => {
-    dispatchInputNumberValue({ type: 'decrement' });
+    if (!disabled && inputNumberValue.value > 1)
+      dispatchInputNumberValue({ type: 'decrement' });
   };
 
   return (
@@ -55,7 +57,6 @@ const InputNumber = forwardRef<HTMLInputElement, Props>((props, ref) => {
           className={styles.inputNumber}
           type='number'
           name={label}
-          min='0'
           step={1}
           value={inputNumberValue.value}
           ref={ref}

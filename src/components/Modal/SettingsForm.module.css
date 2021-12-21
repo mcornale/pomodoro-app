@@ -4,6 +4,13 @@
   padding: 0rem 4rem 5rem;
 }
 
+.settingsFormAlert {
+  margin-top: 1.2rem;
+  color: red;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .settingsForm > div {
   display: flex;
   padding: 2rem 0;

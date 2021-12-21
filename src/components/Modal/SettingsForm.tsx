@@ -1,8 +1,11 @@
 import { FormEvent, useCallback, useRef, useState } from 'react';
-import { COLORS, FONTS, TIMERS } from '../../constants';
+import { COLORS, FONTS, TIMERS, TIMER_STATUS } from '../../constants';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { changeSettingsModalState } from '../../store/modalSlice';
-import { updateSettings } from '../../store/timerSlice';
+import {
+  updateActiveTimerTotalMinutes,
+  updateSettings,
+} from '../../store/timerSlice';
 import Button from '../UI/Button';
 import InputNumber from '../UI/InputNumber';
 import InputRadio from '../UI/InputRadio';
@@ -16,6 +19,8 @@ const SettingsForm = () => {
     longBreakMinutes,
     selectedFont,
     selectedColor,
+    activeTimer,
+    timerStatus,
   } = useAppSelector((state) => state.timer);
 
   const dispatch = useAppDispatch();
@@ -69,7 +74,7 @@ const SettingsForm = () => {
         newSelectedColor,
       })
     );
-
+    dispatch(updateActiveTimerTotalMinutes());
     dispatch(changeSettingsModalState());
   };
 
@@ -80,6 +85,7 @@ const SettingsForm = () => {
         <div className={styles.settingsFormInputsContainer}>
           {Object.entries(TIMERS).map(([timerKey, timerValue]) => {
             let inputTimerRef;
+            let shouldBeDisabled = false;
 
             if (timerValue.NAME === 'pomodoro')
               inputTimerRef = pomodoroInputRef;
@@ -88,6 +94,12 @@ const SettingsForm = () => {
             if (timerValue.NAME === 'long break')
               inputTimerRef = longBreakInputRef;
 
+            if (
+              timerStatus === TIMER_STATUS.COUNTING &&
+              activeTimer === timerValue.NAME
+            )
+              shouldBeDisabled = true;
+
             return (
               <InputNumber
                 key={timerKey}
@@ -95,10 +107,16 @@ const SettingsForm = () => {
                 label={timerValue.NAME}
                 value={chooseInputNumberValue(timerValue.NAME)}
                 ref={inputTimerRef}
+                disabled={shouldBeDisabled}
               />
             );
           })}
         </div>
+        {timerStatus === TIMER_STATUS.COUNTING && (
+          <p className={styles.settingsFormAlert}>
+            The {activeTimer} timer is running. You cannot change its value
+          </p>
+        )}
       </div>
       <div>
         <h4 className={styles.settingsFormInputsTitle}> Font</h4>
